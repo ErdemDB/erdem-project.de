@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./ep-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/ep_database
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=7hkyN11iMVJM0lZy0ZuE
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./ep-frontend
+    ports:
+      - "3000:3000"
+
+  db:
+    image: mysql:8.0.36
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: ep_database
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: 7hkyN11iMVJM0lZy0ZuE
+      MYSQL_ROOT_PASSWORD: 7hkyN11iMVJM0lZy0ZuE
+    volumes:
+      - db-data:/var/lib/mysql
+
+volumes:
+  db-data:
