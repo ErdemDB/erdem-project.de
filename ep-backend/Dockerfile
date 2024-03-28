@@ -3,6 +3,7 @@ WORKDIR /app
 COPY pom.xml .
 COPY src ./src
 RUN mvn clean package
+RUN mvn test || exit 1
 
 FROM openjdk:17
 WORKDIR /app
