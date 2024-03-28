@@ -18,6 +18,19 @@ services:
       context: ./ep-frontend
     ports:
       - "3000:3000"
+    depends_on:
+      - openapi-generator
+
+  openapi-generator:
+    image: openapitools/openapi-generator-cli
+    volumes:
+      - ./ep-frontend:/local
+    command: >
+      /bin/sh -c "wget -qO- http://backend:8080/erdem-project/v3/api-docs
+      | java -jar /opt/openapi-generator/modules/openapi-generator-cli/target/openapi-generator-cli.jar generate
+      -i /dev/stdin
+      -g typescript-fetch
+      -o /local/src/api-client"
 
   db:
     image: mysql:8.0.36
