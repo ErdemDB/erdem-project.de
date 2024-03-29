@@ -1,0 +1,11 @@
+{
+  "sidebar": {
+    "header": "Erdem"
+  },
+  "header": {
+    "welcomeMessage": "Welcome to erdem.io"
+  },
+  "footer": {
+    "copyright": "© 2024 Erdem Bedel"
+  }
+}
