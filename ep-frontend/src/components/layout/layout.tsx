@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Sidebar from './sidebar/Sidebar';
 
-const Layout: React.FC = ({ children }) => {
+import './layout.css';
+
+interface LayoutProps {
+  children: ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div>
       <Sidebar />
@@ -10,4 +16,4 @@ const Layout: React.FC = ({ children }) => {
   );
 };
 
-export default Layout;
+export default Layout;  
