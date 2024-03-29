@@ -1,0 +1,70 @@
+.MuiDrawer-root {
+    width: 20%;
+    max-width: 150px;
+}
+
+.MuiDrawer-paper {
+    height: 100%; /* Höhe des Paper-Elements im Drawer */
+    width: 20%;
+    max-width: 250px;
+    overflow: auto; /* Scrollen, wenn Inhalt überläuft */
+    color: #949494; /* Textfarbe */
+    background-color: #f8f8f8; /* Hintergrundfarbe */
+}
+
+.MuiListItem-root {
+    display: flex; /* Flexibles Layout für Listenelemente */
+    align-items: center; /* Zentrierte Ausrichtung der Elemente */
+    padding: 8px 10px; /* Weniger vertikaler Abstand für kompaktere Listenelemente */
+    transition: background-color 0.3s ease; /* Übergangseffekt für Hover */
+    border-bottom: 1px solid #3f3f3f; /* Dünne Trennlinie zwischen Listenelementen */
+    font-size: 12px; /* Kleinere Schriftgröße für Listenelemente */
+}
+
+.MuiListItem-root:hover {
+    background-color: #1565c0; /* Dunklerer Blauton beim Hover */
+    color: #103ca4; /* Weißer Text beim Hover */
+}
+
+.MuiListItemIcon-root {
+    min-width: 40px; /* Mindestbreite für Icon-Container */
+    display: flex; /* Flexibles Layout für Icons */
+    justify-content: center; /* Zentrierte Ausrichtung der Icons */
+    color: #103ca4; /* Farbe für Icons */
+}
+
+.MuiListItemText-root {
+    margin-left: 10px; /* Abstand zum Text */
+}
+
+.MuiListItem-root.Mui-selected {
+    background-color: #103ca4; /* Hintergrundfarbe für ausgewählte Elemente */
+    color: #103ca4; /* Textfarbe für ausgewählte Elemente */
+}
+
+.MuiDrawer-paperAnchorLeft {
+    border-right: 1px solid #e0e0e0; /* Linke Trennlinie für Drawer */
+}
+
+.MuiDrawer-paperAnchorTop {
+    border-bottom: 1px solid #e0e0e0; /* Obere Trennlinie für Drawer */
+}
+
+.MuiDrawer-paperAnchorRight {
+    border-left: 3px solid #e0e0e0; /* Rechte Trennlinie für Drawer */
+}
+
+.MuiDrawer-paperAnchorBottom {
+    border-top: 1px solid #e0e0e0; /* Untere Trennlinie für Drawer */
+}
+
+.MuiAppBar-root {
+    background-color: #1976d2; /* Hintergrundfarbe für AppBar */
+    color: #fff; /* Textfarbe für AppBar */
+}
+
+.headerTitle {
+    margin-left: 16px; /* Abstand zum Titeltext */
+    font-weight: bold; /* Fettgedruckter Text */
+    font-size: 20px; /* Schriftgröße des Titels */
+}

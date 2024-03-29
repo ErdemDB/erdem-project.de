@@ -1,25 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { CssBaseline, Typography } from '@mui/material';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import Layout from './components/layout/layout';
+
+const theme = createTheme({
+  typography: {
+    fontFamily: 'Roboto, sans-serif',
+    fontSize: 14
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <div className="App">
+        <Layout>
+          <Typography variant="body1">
+            Hier ist dein Text mit der globalen Schriftart Roboto.
+          </Typography>
+        </Layout>
+      </div>
+    </ThemeProvider>
   );
 }
 

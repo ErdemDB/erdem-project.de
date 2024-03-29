@@ -1,10 +1,9 @@
-package org.berlin.epbackend;
+package org.berlin.epbackend.service;
 
 import org.berlin.epbackend.dto.TaskDTO;
 import org.berlin.epbackend.entity.TaskEntity;
 import org.berlin.epbackend.mapper.TaskMapper;
 import org.berlin.epbackend.repository.TaskRepository;
-import org.berlin.epbackend.service.TaskService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
