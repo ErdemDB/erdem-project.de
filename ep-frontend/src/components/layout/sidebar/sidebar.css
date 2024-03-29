@@ -1,70 +1,42 @@
-.MuiDrawer-root {
-    width: 20%;
-    max-width: 150px;
-}
-
 .MuiDrawer-paper {
-    height: 100%; /* Höhe des Paper-Elements im Drawer */
+    height: 100%;
     width: 20%;
-    max-width: 250px;
-    overflow: auto; /* Scrollen, wenn Inhalt überläuft */
-    color: #949494; /* Textfarbe */
-    background-color: #f8f8f8; /* Hintergrundfarbe */
+    max-width: 200px;
+    min-width: 150px;
+    background-color: #ffffff !important;
+    box-shadow: 0.1px 0px 15px rgb(207, 207, 207) !important;
 }
 
-.MuiListItem-root {
-    display: flex; /* Flexibles Layout für Listenelemente */
-    align-items: center; /* Zentrierte Ausrichtung der Elemente */
-    padding: 8px 10px; /* Weniger vertikaler Abstand für kompaktere Listenelemente */
-    transition: background-color 0.3s ease; /* Übergangseffekt für Hover */
-    border-bottom: 1px solid #3f3f3f; /* Dünne Trennlinie zwischen Listenelementen */
-    font-size: 12px; /* Kleinere Schriftgröße für Listenelemente */
+
+.MuiButtonBase-root.MuiListItemButton-root:hover {
+    font-weight: bold;
+    background-color: #eeeeee;
+    color: #103ca4;
+    border-left: 5px solid #103ca4;
 }
 
-.MuiListItem-root:hover {
-    background-color: #1565c0; /* Dunklerer Blauton beim Hover */
-    color: #103ca4; /* Weißer Text beim Hover */
+.MuiButtonBase-root.MuiListItemButton-root:hover .MuiSvgIcon-root {
+    color: #103ca4;
 }
 
-.MuiListItemIcon-root {
-    min-width: 40px; /* Mindestbreite für Icon-Container */
-    display: flex; /* Flexibles Layout für Icons */
-    justify-content: center; /* Zentrierte Ausrichtung der Icons */
-    color: #103ca4; /* Farbe für Icons */
+.MuiButtonBase-root.MuiListItemButton-root .MuiSvgIcon-root {
+    font-size: 23px;
+    margin: 2px 2px 2px 15px;
+    color: #979797;
 }
 
-.MuiListItemText-root {
-    margin-left: 10px; /* Abstand zum Text */
-}
-
-.MuiListItem-root.Mui-selected {
-    background-color: #103ca4; /* Hintergrundfarbe für ausgewählte Elemente */
-    color: #103ca4; /* Textfarbe für ausgewählte Elemente */
-}
-
-.MuiDrawer-paperAnchorLeft {
-    border-right: 1px solid #e0e0e0; /* Linke Trennlinie für Drawer */
-}
-
-.MuiDrawer-paperAnchorTop {
-    border-bottom: 1px solid #e0e0e0; /* Obere Trennlinie für Drawer */
-}
-
-.MuiDrawer-paperAnchorRight {
-    border-left: 3px solid #e0e0e0; /* Rechte Trennlinie für Drawer */
-}
-
-.MuiDrawer-paperAnchorBottom {
-    border-top: 1px solid #e0e0e0; /* Untere Trennlinie für Drawer */
-}
-
-.MuiAppBar-root {
-    background-color: #1976d2; /* Hintergrundfarbe für AppBar */
-    color: #fff; /* Textfarbe für AppBar */
+.MuiButtonBase-root.MuiListItemButton-root{
+    padding-bottom: 10px;
 }
 
 .headerTitle {
-    margin-left: 16px; /* Abstand zum Titeltext */
-    font-weight: bold; /* Fettgedruckter Text */
-    font-size: 20px; /* Schriftgröße des Titels */
+    padding: 8px 10px;;
+    font-size: 20px;
+    font-weight: 300;
+    color: #ffffff;
+    background: linear-gradient(90deg, rgba(0,42,92,1) 0%, rgba(0,62,135,1) 100%);
+}
+
+.MuiTypography-root {
+    font-size: 13px !important;
 }

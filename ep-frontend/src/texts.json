@@ -1,6 +1,10 @@
 {
   "sidebar": {
-    "header": "Erdem"
+    "header": "Erdem Bedel",
+    "items": [
+      {"text": "CV"},
+      {"text": "Projects"}
+    ]
   },
   "header": {
     "welcomeMessage": "Welcome to erdem.io"

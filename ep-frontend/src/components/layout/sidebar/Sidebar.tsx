@@ -1,5 +1,5 @@
 import React from 'react';
-import {Drawer, List, ListItem, ListItemIcon, ListItemText} from '@mui/material';
+import { Drawer, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import MessageIcon from '@mui/icons-material/Message';
@@ -15,25 +15,24 @@ const Sidebar = () => {
             variant="permanent"
             anchor="left"
         >
-            <div>
-                <LogoIcon style={{color: '#fff'}}/>
+            <div className='headerTitle'>
+                {/*<LogoIcon style={{ color: '#fff' }} />*/}
                 <span>{texts.sidebar.header}</span>
             </div>
 
             <div>
                 <List>
-                    {['Dashboard', 'Projects', 'Tasks', 'Messages', 'Reports'].map((text, index) => (
-                        <ListItem button key={text}> {}
-                            <ListItemIcon> {}
-                                {index === 0 && <HomeIcon/>}
-                                {index === 1 && <AssignmentIcon/>}
-                                {index === 2 && <AssignmentIcon/>}
-                                {index === 3 && <MessageIcon/>}
-                                {index === 4 && <ReportIcon/>}
+                    {texts.sidebar.items.map((item, index) => (
+                        <ListItemButton key={item.text}>
+                            <ListItemIcon>
+                                {index === 0 && <HomeIcon />}
+                                {index === 1 && <AssignmentIcon />}
+                                {index === 2 && <AssignmentIcon />}
+                                {index === 3 && <MessageIcon />}
+                                {index === 4 && <ReportIcon />}
                             </ListItemIcon>
-                            <ListItemText primary={text}
-                            />
-                        </ListItem>
+                            <ListItemText primary={item.text} />
+                        </ListItemButton>
                     ))}
                 </List>
             </div>
