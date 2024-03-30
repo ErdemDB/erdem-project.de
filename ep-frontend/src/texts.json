@@ -1,9 +1,13 @@
 {
+  "topbar":{
+    "headerTitle": "Erdem Bedel",
+    "headerSubtitle": "Software-Developer"
+
+  },
   "sidebar": {
-    "header": "Erdem Bedel",
     "items": [
       {"text": "CV"},
-      {"text": "Projects"}
+      {"text": "Projekte"}
     ]
   },
   "header": {
