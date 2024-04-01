@@ -6,16 +6,17 @@ const Theme = createTheme({
     fontFamily: 'Roboto, sans-serif',
     h1: {
       fontWeight: 100,
+      fontSize: '27px',
+    }, h2: {
+      fontWeight: 100,
       fontSize: '18px',
-      letterSpacing: '0.0075em',
     }, subtitle1: {
       fontWeight: 400,
       fontSize: '13px',
       letterSpacing: '0.0075em',
     }, body2: {
-      fontSize: '0.875rem',
+      fontSize: '12px',
       fontFamily: 'IBM Plex Sans, sans-serif',
-      letterSpacing: '0.0075em',
       color: '#3d3d3d',
       fontWeight: 700,
     },

@@ -22,9 +22,10 @@
 }
 
 .MuiListItemIcon-root {
-    min-width: 40px !important;
+    min-width: 30px !important;
 }
 
 .MuiButtonBase-root.MuiListItemButton-root .MuiSvgIcon-root {
     color: #3d3d3d;
+    font-size: 20px;
 }

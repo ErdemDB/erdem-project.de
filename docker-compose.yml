@@ -1,5 +1,9 @@
 version: '3.8'
 
+networks:
+  erdemio-network:
+    driver: bridge
+
 services:
   backend:
     build:
@@ -12,6 +16,8 @@ services:
       - SPRING_DATASOURCE_PASSWORD=7hkyN11iMVJM0lZy0ZuE
     depends_on:
       - db
+    networks:
+      - erdemio-network
 
   frontend:
     build:
@@ -20,6 +26,8 @@ services:
       - "3000:3000"
     depends_on:
       - openapi-generator
+    networks:
+      - erdemio-network
 
   openapi-generator:
     image: openapitools/openapi-generator-cli
@@ -43,6 +51,8 @@ services:
       MYSQL_ROOT_PASSWORD: 7hkyN11iMVJM0lZy0ZuE
     volumes:
       - db-data:/var/lib/mysql
+    networks:
+      - erdemio-network
 
 volumes:
   db-data:
