@@ -1,13 +1,16 @@
 {
-  "topbar":{
+  "topbar": {
     "headerTitle": "Erdem Bedel",
     "headerSubtitle": "Software-Developer"
-
   },
   "sidebar": {
     "items": [
-      {"text": "CV"},
-      {"text": "Projekte"}
+      {
+        "text": "CV"
+      },
+      {
+        "text": "Projekte"
+      }
     ]
   },
   "header": {
@@ -15,5 +18,11 @@
   },
   "footer": {
     "copyright": "© 2024 Erdem Bedel"
+  },
+  "cv": {
+    "ueberMich": {
+      "title": "Über mich",
+      "content": "Als Software-Entwickler mit einer Affinität für innovative Technologien bringe ich praktische Erfahrung in Java und Spring Boot, sowie in der Frontend-Entwicklung mit React und TypeScript mit. Meine Stärke liegt in der Transformation von komplexen Herausforderungen in intuitive Lösungen. Mit einer Grundlage in der Wirtschaftsinformatik kombiniere ich technisches Know-how mit einem agilen Mindset, um Projekte voranzutreiben, die sowohl inspirieren als auch funktionieren."
+    }
   }
 }

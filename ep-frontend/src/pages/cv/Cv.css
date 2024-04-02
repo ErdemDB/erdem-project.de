@@ -1,0 +1,39 @@
+img {
+    height: 508px;
+}
+
+.MuiContainer-root {
+    padding: 0px 0px 0px 0px !important;
+    max-width: none !important;
+}
+
+.darkSection {
+    background-color: rgba(0, 42, 92, 1);
+    color: white;
+    padding: 2rem 0;
+}
+
+.lighterSection {
+    background-color: #c6cfdb;
+    color: white;
+    padding: 2rem 0;
+}
+
+.whiteSection {
+    padding: 2rem 0;
+    display: flex;
+    margin: auto;
+    max-width: 960px;
+}
+
+.sectionContent {
+    padding: 2rem;
+}
+
+.sectionContent .MuiTypography-h4  {
+    margin-bottom: 2rem;
+}
+
+.sectionContent .MuiGrid-rood  {
+    margin-right: 2rem;
+}

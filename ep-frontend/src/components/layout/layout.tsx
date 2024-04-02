@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import Sidebar from './sidebar/Sidebar';
 import Header from './header/Topbar';
-import Cv from './cv/Cv';
+import Cv from '../../pages/cv/Cv';
 
 import './Layout.css';
 

@@ -1,0 +1,49 @@
+.MuiDivider-root {
+    width: 80% !important;
+    margin: 20px 0 !important;
+}
+
+.MuiIconButton-root {
+    margin-right: 10px !important;
+    color: #003261 !important;
+}
+
+.GithubIcon {
+    font-size: 22px !important;
+}
+
+.MuiGrid-item {
+    justify-content: center;
+    align-items: center;
+}
+
+.profileJobText {
+    margin-bottom: 50px !important;
+}
+
+.profileCardContainer {
+    display: flex;
+    padding: 20px;
+}
+
+.profileAvatar {
+    width: 120px !important;
+    height: 120px !important;
+    margin-left: 5px;
+    margin-bottom: 15px;
+}
+
+.profileDetails {
+    flex: 1;
+}
+
+.MuiButton-outlinedPrimary{
+    color: #004381 !important;
+    border-color: #004381 !important;
+}
+
+.MuiButton-outlinedPrimary:hover{
+    color: #e6e6e6 !important;
+    border-color: #004381 !important;
+    background-color: #004381 !important;
+}
