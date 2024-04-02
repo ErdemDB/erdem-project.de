@@ -10,15 +10,21 @@ const Theme = createTheme({
     }, h2: {
       fontWeight: 100,
       fontSize: '18px',
+    }, h4:{
+      color: '#1d1914',
     }, subtitle1: {
       fontWeight: 400,
       fontSize: '13px',
       letterSpacing: '0.0075em',
+    }, body1: {
+      color: '#1d1914',
+      textAlign: 'justify',
     }, body2: {
-      fontSize: '12px',
-      fontFamily: 'IBM Plex Sans, sans-serif',
-      color: '#3d3d3d',
-      fontWeight: 700,
+      fontFamily: 'IBM Plex Sans, Roboto, sans-serif',
+      fontSize: '14px',
+      color: '#4A4A4A',
+      fontWeight: '500',
+      lineHeight: '30px',
     },
   },
 });
