@@ -6,5 +6,6 @@ index.ts
 models/TaskDTO.ts
 models/TaskEntity.ts
 models/WeatherDTO.ts
+models/WeatherDescriptionType.ts
 models/index.ts
 runtime.ts

@@ -5,7 +5,7 @@
 
 .MuiIconButton-root {
     margin-right: 10px !important;
-    color: #003261 !important;
+    color: #2b2a29 !important;
 }
 
 .GithubIcon {
@@ -38,12 +38,12 @@
 }
 
 .MuiButton-outlinedPrimary{
-    color: #004381 !important;
-    border-color: #004381 !important;
+    color: #2b2a29 !important;
+    border-color: #2b2a29 !important;
 }
 
 .MuiButton-outlinedPrimary:hover{
     color: #e6e6e6 !important;
-    border-color: #004381 !important;
-    background-color: #004381 !important;
+    border-color: #2b2a29 !important;
+    background-color: #2b2a29 !important;
 }

@@ -8,13 +8,27 @@ img {
 }
 
 .darkSection {
-    background-color: rgba(0, 42, 92, 1);
+    background-color: #2b2a29;
     color: white;
+}
+
+.darkSectionContainer {
     padding: 2rem 0;
+    display: flex;
+    margin: auto;
+    max-width: 960px;
+}
+
+.darkSection h4 {
+    color: #f5f4f0;
+    font-weight: 300;
+}
+
+.darkSection .body2 {
+    color: white;
 }
 
 .lighterSection {
-    background-color: #c6cfdb;
     color: white;
     padding: 2rem 0;
 }
@@ -30,10 +44,10 @@ img {
     padding: 2rem;
 }
 
-.sectionContent .MuiTypography-h4  {
+.sectionContent .MuiTypography-h4 {
     margin-bottom: 2rem;
 }
 
-.sectionContent .MuiGrid-rood  {
+.sectionContent .MuiGrid-rood {
     margin-right: 2rem;
 }

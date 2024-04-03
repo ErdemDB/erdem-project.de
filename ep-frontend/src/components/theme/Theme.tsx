@@ -5,11 +5,13 @@ const Theme = createTheme({
   typography: {
     fontFamily: 'Roboto, sans-serif',
     h1: {
-      fontWeight: 100,
+      fontWeight: 300,
       fontSize: '27px',
+      color: '#f5f4f0',
     }, h2: {
-      fontWeight: 100,
+      fontWeight: 300,
       fontSize: '18px',
+      color: '#f5f4f0',
     }, h4:{
       color: '#1d1914',
     }, subtitle1: {
@@ -20,11 +22,12 @@ const Theme = createTheme({
       color: '#1d1914',
       textAlign: 'justify',
     }, body2: {
-      fontFamily: 'IBM Plex Sans, Roboto, sans-serif',
-      fontSize: '14px',
-      color: '#4A4A4A',
-      fontWeight: '500',
-      lineHeight: '30px',
+      fontFamily: 'Graphik, sans-serif',
+      fontSize: '.875em',
+      color: '#f5f4f0',
+      fontWeight: 400,
+      lineHeight: '1.5rem',
+      maxWidth: '40em',
     },
   },
 });

@@ -3,3 +3,4 @@
 export * from './TaskDTO';
 export * from './TaskEntity';
 export * from './WeatherDTO';
+export * from './WeatherDescriptionType';

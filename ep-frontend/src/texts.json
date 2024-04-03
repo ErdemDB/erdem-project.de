@@ -23,6 +23,14 @@
     "ueberMich": {
       "title": "Über mich",
       "content": "Als Software-Entwickler mit einer Affinität für innovative Technologien bringe ich praktische Erfahrung in Java und Spring Boot, sowie in der Frontend-Entwicklung mit React und TypeScript mit. Meine Stärke liegt in der Transformation von komplexen Herausforderungen in intuitive Lösungen. Mit einer Grundlage in der Wirtschaftsinformatik kombiniere ich technisches Know-how mit einem agilen Mindset, um Projekte voranzutreiben, die sowohl inspirieren als auch funktionieren."
+    },
+    "profileCard": {
+      "name": "Erdem Bedel",
+      "jobTitle": "Software-Developer",
+      "linkedInLink": "https://www.linkedin.com/in/erdem-bedel-9a3b71209/",
+      "githubLink": "https://github.com/ErdemDB",
+      "email": "mailto:erdem.bedel1@gmail.com",
+      "lebenslauf": "Lebenslauf"
     }
   }
 }
