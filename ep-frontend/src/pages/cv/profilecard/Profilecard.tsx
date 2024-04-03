@@ -19,26 +19,26 @@ const Profilecard = () => {
             src={`${process.env.PUBLIC_URL}/ueber_mich.jpg`}
             className="profileAvatar"
           />
-          <Typography variant="h5">Erdem Bedel</Typography>
+          <Typography variant="h5">{texts.cv.profileCard.name}</Typography>
           <Typography variant="subtitle1"
-            className="profileJobText">Software-Developer</Typography>
+            className="profileJobText">{texts.cv.profileCard.jobTitle}</Typography>
         </Grid>
         <Divider />
         <ButtonGroup variant="text" aria-label="Basic button group">
-          <IconButton aria-label="LinkedIn" href="https://www.linkedin.com/in/erdem-bedel-9a3b71209/" target='_blank'>
+          <IconButton aria-label="LinkedIn" href={texts.cv.profileCard.linkedInLink} target='_blank'>
             <LinkedInIcon />
           </IconButton>
-          <IconButton aria-label="GitHub" href="https://github.com/ErdemDB" target='_blank'>
+          <IconButton aria-label="GitHub" href={texts.cv.profileCard.githubLink} target='_blank'>
             <GitHubIcon className='GithubIcon'/>
           </IconButton>
-          <IconButton aria-label="EMail" href="mailto:erdem.bedel1@gmail.com" target='_blank'>
+          <IconButton aria-label="EMail" href={texts.cv.profileCard.email} target='_blank'>
             <EmailIcon />
           </IconButton>
         </ButtonGroup>
         <Divider />
 
         <Grid item>
-          <Button variant="outlined">Lebenslauf</Button>
+          <Button variant="outlined">{texts.cv.profileCard.lebenslauf}</Button>
         </Grid>
       </Grid>
     </Paper>

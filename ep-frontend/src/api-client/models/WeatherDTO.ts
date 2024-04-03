@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { WeatherDescriptionType } from './WeatherDescriptionType';
+import {
+    WeatherDescriptionTypeFromJSON,
+    WeatherDescriptionTypeFromJSONTyped,
+    WeatherDescriptionTypeToJSON,
+} from './WeatherDescriptionType';
+
 /**
  * 
  * @export
@@ -27,10 +34,10 @@ export interface WeatherDTO {
     temperature: number;
     /**
      * 
-     * @type {string}
+     * @type {WeatherDescriptionType}
      * @memberof WeatherDTO
      */
-    description: string;
+    description: WeatherDescriptionType;
     /**
      * 
      * @type {string}
@@ -60,7 +67,7 @@ export function WeatherDTOFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     return {
         
         'temperature': json['temperature'],
-        'description': json['description'],
+        'description': WeatherDescriptionTypeFromJSON(json['description']),
         'city': json['city'],
     };
 }
@@ -72,7 +79,7 @@ export function WeatherDTOToJSON(value?: WeatherDTO | null): any {
     return {
         
         'temperature': value['temperature'],
-        'description': value['description'],
+        'description': WeatherDescriptionTypeToJSON(value['description']),
         'city': value['city'],
     };
 }

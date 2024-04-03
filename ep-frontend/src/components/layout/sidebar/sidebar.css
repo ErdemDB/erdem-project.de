@@ -9,16 +9,16 @@
 .MuiButtonBase-root.MuiListItemButton-root:hover {
     font-weight: bold;
     background-color: #fafafa;
-    color: rgba(0, 42, 92, 1);
-    border-left: 4px solid rgb(11, 53, 105);
+    color: #2b2a29;
+    border-left: 4px solid #2b2a29;
 }
 
 .MuiButtonBase-root.MuiListItemButton-root:hover .MuiSvgIcon-root {
-    color: rgba(0, 42, 92, 1);
+    color: #2b2a29;
 }
 
 .MuiButtonBase-root.MuiListItemButton-root:hover .MuiTypography-root {
-    color: rgba(0, 42, 92, 1);
+    color: #2b2a29;
 }
 
 .MuiListItemIcon-root {

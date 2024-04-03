@@ -1,3 +1,16 @@
-.MuiToolbar-root{
-    background: linear-gradient(90deg, rgb(0, 50, 97), rgb(1, 56, 102), rgb(4, 62, 107), rgb(7, 68, 112), rgb(11, 74, 117));
+.MuiToolbar-root {
+    background: #2b2a29;
+}
+
+.topbarMenu:hover {
+    border-bottom: solid 1px #f5f4f0 !important;
+}
+
+.topbarMenu:active {
+    border-bottom: solid 1px #f5f4f0 !important;
+}
+
+.topbarMenu {
+    border-radius: 0%  !important;
+    color: #f5f4f0 !important;
 }

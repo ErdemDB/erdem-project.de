@@ -4,10 +4,11 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Container, Typography, Grid } from '@mui/material';
-import MeinBild from '../../ueber_mich.jpg';
 import Profilcard from './profilecard/Profilecard';
-import texts from '../../texts.json';
+import ContactForm from './contactform/ContactForm';
 
+import texts from '../../texts.json';
+import Resume from './resume/Resume';
 
 import './Cv.css';
 
@@ -28,23 +29,22 @@ const Cv = () => {
             <Profilcard />
           </Grid>
         </Grid>
-        
-        <Grid container className="lighterSection">
-          <Grid item xs={12} className="sectionContent">
-            <Typography variant="h4">Bildungsweg</Typography>
-            <Typography variant="body1">
-              Hier könnten Details zu deinem Bildungsweg stehen...
-            </Typography>
+
+        <Grid container className="darkSection">
+          <Grid container className='darkSectionContainer'>
+            <Grid item xs={12} md={6} className="sectionContent">
+              <Typography variant="h4">Kontaktiere mich</Typography>
+            </Grid>
+            <Grid item xs={12} md={6} className="sectionContent">
+              <ContactForm />
+            </Grid>
           </Grid>
         </Grid>
 
         {/* Auszeichnungen & Stipendien Sektion */}
         <Grid container className="whiteSection">
           <Grid item xs={12} className="sectionContent">
-            <Typography variant="h4">Auszeichnungen & Stipendien</Typography>
-            <Typography variant="body1">
-              Eine Liste der Auszeichnungen und Stipendien...
-            </Typography>
+            <Resume />
           </Grid>
         </Grid>
 

@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import useWeather from './Controller';
 import CircularProgress from '@mui/material/CircularProgress';
-import {Typography } from '@mui/material';
+import { Typography, Box } from '@mui/material';
+import { WeatherDescriptionType } from '../../../../api-client';
+import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
+import CloudOutlinedIcon from '@mui/icons-material/CloudOutlined';
+import GrainOutlinedIcon from '@mui/icons-material/GrainOutlined';
+import UmbrellaOutlinedIcon from '@mui/icons-material/UmbrellaOutlined';
+import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
+import FlashOnOutlinedIcon from '@mui/icons-material/FlashOnOutlined';
 
-
-function getIcon(description: string) {
-
-}
 
 const Weather = () => {
   const [latitude, setLatitude] = useState<number>(0);
@@ -29,23 +32,46 @@ const Weather = () => {
     }
   }, []);
 
+  function getWeatherIcon(WeatherDescription: WeatherDescriptionType) {
+    switch (WeatherDescription) {
+      case WeatherDescriptionType.Clear:
+        return <WbSunnyOutlinedIcon />;
+      case WeatherDescriptionType.Clouds:
+        return <CloudOutlinedIcon />;
+      case WeatherDescriptionType.Drizzle:
+        return <GrainOutlinedIcon />;
+      case WeatherDescriptionType.Rain:
+        return <UmbrellaOutlinedIcon />;
+      case WeatherDescriptionType.Snow:
+        return <AcUnitOutlinedIcon />;
+      case WeatherDescriptionType.Thunderstorm:
+        return <FlashOnOutlinedIcon />;
+      default:
+        return null;
+    }
+  }
+
   const { weatherData, loading, error: weatherError } = useWeather(latitude, longitude);
 
   if (loading) return <CircularProgress style={{ color: 'white' }} />;
-  {/*
+
   if (weatherError) return <p>Fehler beim Abrufen der Wetterdaten: {weatherError.message}</p>;
   if (!weatherData) return <p>Keine Wetterdaten verfügbar.</p>;
   if (geoError) return <p>Fehler bei der Geolokalisierung: {geoError}</p>;
-  */}
   return (
-    <div>
-      {/* <p>Beschreibung: {weatherData.description}</p> */}
-      {/* <p>Temperatur: {weatherData.temperature}°C</p>*/}
-
-      <Typography variant="h1" component="div">
-        17°C, <Typography variant="h2" component="div">{weatherData?.city}</Typography>
+    <Box display="flex" flexDirection="column" alignItems="center">
+      <Box display="flex" alignItems="center" p={0.5}>
+        <Box pr={1}>
+          {getWeatherIcon(weatherData?.description)}
+        </Box>
+        <Typography variant="h2" component="div" sx={{ my: 0 }}>
+          {weatherData?.temperature}°C
+        </Typography>
+      </Box>
+      <Typography variant="body1" component="div" sx={{ color: 'white', fontWeight: '400', mt: -0.5 }}>
+        {weatherData?.city}
       </Typography>
-    </div>
+    </Box>
   );
 };
 

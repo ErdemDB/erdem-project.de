@@ -13,7 +13,7 @@ const Layout: React.FC<LayoutProps> = () => {
     <>
       <Header />
       <div style={{ display: 'flex', paddingTop: '64px', height: `calc(100vh - ${'64px'})` }}>
-        <Sidebar/>
+        {/*<Sidebar/>*/}
         <main style={{ flexGrow: 1, overflowY: 'auto' }}>
           <Cv/>
         </main>
