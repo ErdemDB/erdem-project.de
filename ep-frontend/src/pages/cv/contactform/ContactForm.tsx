@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Paper, Grid, TextField, Button } from '@mui/material';
+import useMailSender from './Controller';
+import { MailDTO } from '../../../api-client';
 import './ContactForm.css';
 
 interface Errors {
@@ -16,21 +18,14 @@ interface Touched {
   message: boolean;
 }
 
-const validateEmail = (email: string): boolean => {
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return regex.test(email);
-};
-
-const validateText = (text: string): boolean => {
-  const regex = /[a-zA-Z]/;
-  return regex.test(text);
-};
-
 const ContactForm: React.FC = () => {
-  const [email, setEmail] = useState<string>('');
-  const [name, setName] = useState<string>('');
-  const [subject, setSubject] = useState<string>('');
-  const [message, setMessage] = useState<string>('');
+  const [mailDTO, setMailDTO] = useState<MailDTO>({
+    from: '',
+    name: '',
+    subject: '',
+    text: ''
+  });
+
   const [errors, setErrors] = useState<Errors>({});
   const [touched, setTouched] = useState<Touched>({
     email: false,
@@ -39,34 +34,46 @@ const ContactForm: React.FC = () => {
     message: false,
   });
 
-  const handleInputChange = (field: keyof Touched) => (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
-    setTouched({ ...touched, [field]: true });
-    switch (field) {
-      case 'email':
-        setEmail(value);
-        break;
-      case 'name':
-        setName(value);
-        break;
-      case 'subject':
-        setSubject(value);
-        break;
-      case 'message':
-        setMessage(value);
-        break;
-    }
+  const { sendMail } = useMailSender();
+
+  const validateEmail = (email: string): boolean => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
   };
 
-  useEffect(() => {
-    const newErrors: Errors = {};
-    if (touched.email && !validateEmail(email)) newErrors.email = 'Ungültige E-Mail-Adresse';
-    if (touched.name && !validateText(name)) newErrors.name = 'Name erforderlich';
-    if (touched.subject && !validateText(subject)) newErrors.subject = 'Betreff erforderlich';
-    if (touched.message && !validateText(message)) newErrors.message = 'Nachricht erforderlich';
+  const validateText = (text: string): boolean => {
+    const regex = /[a-zA-Z]/;
+    return regex.test(text) && text.trim().length > 0;
+  };
 
+  const validate = () => {
+    const newErrors: Errors = {};
+    if (!mailDTO.from || !validateEmail(mailDTO.from)) newErrors.email = 'Ungültige E-Mail-Adresse';
+    if (!mailDTO.name || !validateText(mailDTO.name)) newErrors.name = 'Name erforderlich';
+    if (!mailDTO.subject || !validateText(mailDTO.subject)) newErrors.subject = 'Betreff erforderlich';
+    if (!mailDTO.text || !validateText(mailDTO.text)) newErrors.message = 'Nachricht erforderlich';
     setErrors(newErrors);
-  }, [email, name, subject, message, touched]);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleInputChange = (field: keyof MailDTO) => (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setTouched({ ...touched, [field]: true });
+    setMailDTO(prevState => ({
+      ...prevState,
+      [field]: value
+    }));
+    validate();
+  };
+
+  const handleSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    event.preventDefault();
+    setTouched({ email: true, name: true, subject: true, message: true });
+
+    if (validate()) {
+      sendMail(mailDTO);
+    }
+  };
 
   return (
     <Paper className="ContactFormContainer" variant="outlined">
@@ -77,8 +84,8 @@ const ContactForm: React.FC = () => {
             label="E-Mail"
             variant="outlined"
             size="small"
-            value={email}
-            onChange={handleInputChange('email')}
+            value={mailDTO.from}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('from')(e)}
             error={Boolean(errors.email)}
             helperText={touched.email ? errors.email : ''}
           />
@@ -89,8 +96,8 @@ const ContactForm: React.FC = () => {
             label="Name"
             variant="outlined"
             size="small"
-            value={name}
-            onChange={handleInputChange('name')}
+            value={mailDTO.name}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('name')(e)}
             error={Boolean(errors.name)}
             helperText={touched.name ? errors.name : ''}
           />
@@ -101,8 +108,8 @@ const ContactForm: React.FC = () => {
             label="Betreff"
             variant="outlined"
             size="small"
-            value={subject}
-            onChange={handleInputChange('subject')}
+            value={mailDTO.subject}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('subject')(e)}
             error={Boolean(errors.subject)}
             helperText={touched.subject ? errors.subject : ''}
           />
@@ -116,17 +123,18 @@ const ContactForm: React.FC = () => {
             multiline
             rows={4}
             fullWidth
-            value={message}
-            onChange={handleInputChange('message')}
+            value={mailDTO.text}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('text')(e)}
             error={Boolean(errors.message)}
             helperText={touched.message ? errors.message : ''}
           />
         </Grid>
-        <Grid item xs={12}>
-          <Button variant="contained" disabled={Object.keys(errors).length > 0 && Object.values(touched).some(Boolean)}>Senden</Button>
+        <Grid item xs={12} sx={{ mt: "30px" }}>
+          <Button variant="contained" onClick={handleSubmit}>Senden</Button>
         </Grid>
       </Grid>
     </Paper>
   );
-}
+};
+
 export default ContactForm;
