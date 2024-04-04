@@ -5,6 +5,11 @@
     text-align: left;
 }
 
+.ContactFormContainer h4 {
+    font-size: 16px;
+    text-align: center;
+}
+
 
 .outlined-basic .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
     border-color: #9e9d9d !important;

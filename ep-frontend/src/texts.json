@@ -31,6 +31,9 @@
       "githubLink": "https://github.com/ErdemDB",
       "email": "mailto:erdem.bedel1@gmail.com",
       "lebenslauf": "Lebenslauf"
+    },
+    "contactForm": {
+      "formSubmitted": "Ihre Nachricht wurde abgeschickt\nVielen Dank für Ihre Zusendung!"
     }
   }
 }
