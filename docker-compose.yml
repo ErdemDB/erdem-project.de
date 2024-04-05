@@ -34,7 +34,7 @@ services:
     volumes:
       - ./ep-frontend:/local
     command: >
-      /bin/sh -c "wget -qO- http://backend:8080/erdem-project/v3/api-docs
+      /bin/sh -c "wget -qO- http://host.docker.internal:8080/erdem-project/v3/api-docs
       | java -jar /opt/openapi-generator/modules/openapi-generator-cli/target/openapi-generator-cli.jar generate
       -i /dev/stdin
       -g typescript-fetch
