@@ -11,6 +11,48 @@
 }
 
 .topbarMenu {
-    border-radius: 0%  !important;
+    border-radius: 0% !important;
+    color: #9e9d9d !important;
+}
+
+.MuiToolbar-root .MuiIconButton-root {
+    color: #bdbdbd !important;
+}
+
+.MuiToolbar-root .MuiIconButton-root:hover {
     color: #f5f4f0 !important;
+}
+
+.MuiToolbar-root .MuiIconButton-root:active {
+    color: #f5f4f0 !important;
+}
+
+.Toolbar-Collapse {
+    color: #2b2a29 !important;
+    background-color: #969595 !important;
+    min-width: 200px !important;
+    max-width: 250px !important;
+    height: 15%;
+    position: fixed;
+    top: 68px;
+    right: 0;
+    z-index: 1300;
+}
+
+.Toolbar-Collapse .MuiTypography-h2 {
+    font-size: 36px !important;
+    color: #2b2a29 !important;
+    font-weight: 400;
+    margin-top: 0.6rem;
+}
+
+.Toolbar-Collapse .MuiTypography-body1 {
+    margin-bottom: 0.75rem;
+}
+
+
+.Toolbar-Collapse svg {
+    color: #2b2a29 !important;
+    background-color: #969595 !important;
+    margin: 1rem 1rem 0rem 0!important;
 }

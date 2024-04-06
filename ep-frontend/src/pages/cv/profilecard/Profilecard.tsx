@@ -6,7 +6,11 @@ import EmailIcon from '@mui/icons-material/Email';
 
 import './Profilecard.css';
 
-const Profilecard = () => {
+interface ProfilecardProps {
+  onLebenslaufClick: () => void;
+}
+
+const Profilecard = ({ onLebenslaufClick }: ProfilecardProps) => {
   return (
     <Paper
       className="profileCardContainer"
@@ -29,7 +33,7 @@ const Profilecard = () => {
             <LinkedInIcon />
           </IconButton>
           <IconButton aria-label="GitHub" href={texts.cv.profileCard.githubLink} target='_blank'>
-            <GitHubIcon className='GithubIcon'/>
+            <GitHubIcon className='GithubIcon' />
           </IconButton>
           <IconButton aria-label="EMail" href={texts.cv.profileCard.email} target='_blank'>
             <EmailIcon />
@@ -38,7 +42,7 @@ const Profilecard = () => {
         <Divider />
 
         <Grid item>
-          <Button variant="outlined">{texts.cv.profileCard.lebenslauf}</Button>
+          <Button variant="outlined" onClick={onLebenslaufClick}>{texts.cv.profileCard.lebenslauf}</Button>
         </Grid>
       </Grid>
     </Paper>

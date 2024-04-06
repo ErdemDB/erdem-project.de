@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Paper, Grid, TextField, Button, Typography } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { Paper, Grid, TextField, Button, Typography, Alert, Box } from '@mui/material';
 import useMailSender from './Controller';
 import { MailDTO } from '../../../api-client';
 import './ContactForm.css';
@@ -78,8 +78,29 @@ const ContactForm: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    if (formSubmitted) {
+      const timeout = setTimeout(() => {
+        setFormSubmitted(false);
+      }, 5000);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [formSubmitted]);
+
   return (
     <Paper className="ContactFormContainer" variant="outlined">
+      <Grid container justifyContent="flex-end" alignItems="flex-end">
+        <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
+          <Box sx={{ position: 'fixed', right: 20, bottom: 20 }}>
+            {formSubmitted && (
+              <Alert severity="success">
+                Ihre Nachricht wurde erfolgreich versendet
+              </Alert>
+            )}
+          </Box>
+        </Grid>
+      </Grid>
       {!formSubmitted ? (
         <Grid container direction="column" alignItems="left" justifyContent="left" spacing={2}>
           <Grid item xs={12}>

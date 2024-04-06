@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useWeather from './Controller';
 import CircularProgress from '@mui/material/CircularProgress';
-import { Typography, Box } from '@mui/material';
+import { Typography, Box, Divider, colors } from '@mui/material';
 import { WeatherDescriptionType } from '../../../../api-client';
 import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
 import CloudOutlinedIcon from '@mui/icons-material/CloudOutlined';
@@ -9,6 +9,7 @@ import GrainOutlinedIcon from '@mui/icons-material/GrainOutlined';
 import UmbrellaOutlinedIcon from '@mui/icons-material/UmbrellaOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
 import FlashOnOutlinedIcon from '@mui/icons-material/FlashOnOutlined';
+import { InvertColors } from '@mui/icons-material';
 
 
 const Weather = () => {
@@ -61,14 +62,14 @@ const Weather = () => {
   return (
     <Box display="flex" flexDirection="column" alignItems="center">
       <Box display="flex" alignItems="center" p={0.5}>
-        <Box pr={1}>
+        <Box>
           {getWeatherIcon(weatherData?.description)}
         </Box>
-        <Typography variant="h2" component="div" sx={{ my: 0 }}>
+        <Typography variant="h2" component="div">
           {weatherData?.temperature}°C
         </Typography>
       </Box>
-      <Typography variant="body1" component="div" sx={{ color: 'white', fontWeight: '400', mt: -0.5 }}>
+      <Typography variant="body1" component="div">
         {weatherData?.city}
       </Typography>
     </Box>

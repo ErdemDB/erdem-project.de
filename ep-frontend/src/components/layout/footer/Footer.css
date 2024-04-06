@@ -1,0 +1,24 @@
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    min-height: 300px;
+    background-color: #2b2a29;
+    padding: 0 1rem;
+}
+
+.footer-container p {
+    color: #9e9d9d !important;
+    margin: 1%;
+}
+
+.footer-container svg {
+    vertical-align: middle;
+}
+
+@media (max-width: 600px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

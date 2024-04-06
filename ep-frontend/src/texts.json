@@ -17,7 +17,8 @@
     "welcomeMessage": "Welcome to erdem.io"
   },
   "footer": {
-    "copyright": "© 2024 Erdem Bedel"
+    "copyright": "© 2024 Erdem Bedel",
+    "madeWith": "Made with"
   },
   "cv": {
     "ueberMich": {
@@ -33,7 +34,7 @@
       "lebenslauf": "Lebenslauf"
     },
     "contactForm": {
-      "formSubmitted": "Ihre Nachricht wurde abgeschickt\nVielen Dank für Ihre Zusendung!"
+      "formSubmitted": "Vielen Dank für Ihre Zusendung!"
     },
     "resume": {
       "export": "Export",
