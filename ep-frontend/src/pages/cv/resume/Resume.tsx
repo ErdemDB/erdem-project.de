@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown'
 import { Box, Tabs, Button, Tab, Typography, Grid, List, ListItem } from '@mui/material';
 import CareerAccordion from './careeraccordion/CareerAccordion';
@@ -35,6 +35,18 @@ function TabPanel(props: TabPanelProps) {
 export default function Resume() {
   const [value, setValue] = useState(0);
   const [expanded, setExpanded] = useState<{ [key: string]: boolean }>({});
+
+  const setDefaultExpanded = (content: any[]) => {
+    let defaultExpanded: { [key: string]: boolean } = {};
+    content.forEach((_, index) => {
+      defaultExpanded[`panel${index + 1}`] = true;
+    });
+    return defaultExpanded;
+  };
+
+  useEffect(() => {
+    setExpanded(setDefaultExpanded(texts.cv.resume.berufserfahrung.content));
+  }, []);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);

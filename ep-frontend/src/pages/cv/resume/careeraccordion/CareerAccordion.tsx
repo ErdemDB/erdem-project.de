@@ -8,7 +8,7 @@ interface AccordionProps {
   expanded: boolean;
   onChange: () => void;
   panel: string;
-  isExpandable?: boolean; // Optional, standardmäßig true
+  isExpandable?: boolean;
 }
 
 const CareerAccordion = ({
@@ -17,7 +17,7 @@ const CareerAccordion = ({
   expanded,
   onChange,
   panel,
-  isExpandable = true // Standardmäßig erweiterbar
+  isExpandable = true
 }: AccordionProps) => {
   return (
     <MuiAccordion expanded={isExpandable && expanded} onChange={onChange}>

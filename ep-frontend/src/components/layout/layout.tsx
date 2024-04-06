@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
-import Sidebar from './sidebar/Sidebar';
+import React from 'react';
 import Header from './header/Topbar';
 import Cv from '../../pages/cv/UeberMich';
+import Footer from './footer/Footer'
 
 import './Layout.css';
 
@@ -13,9 +13,9 @@ const Layout: React.FC<LayoutProps> = () => {
     <>
       <Header />
       <div style={{ display: 'flex', paddingTop: '64px', height: `calc(100vh - ${'64px'})` }}>
-        {/*<Sidebar/>*/}
         <main style={{ flexGrow: 1, overflowY: 'auto' }}>
           <Cv/>
+          <Footer/>
         </main>
       </div>
     </>

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Drawer, List, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material';
 import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
 import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined';

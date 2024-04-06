@@ -1,3 +1,4 @@
+import React, { useRef } from 'react';
 import { Container, Typography, Grid } from '@mui/material';
 import Profilcard from './profilecard/Profilecard';
 import ContactForm from './contactform/ContactForm';
@@ -8,6 +9,15 @@ import Resume from './resume/Resume';
 import './UeberMich.css';
 
 const UeberMich = () => {
+
+  const lebenslaufRef = useRef<HTMLInputElement>(null);
+
+  const handleLebenslaufClick = () => {
+    if (lebenslaufRef.current) {
+      lebenslaufRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div>
       <Container maxWidth="lg">
@@ -21,7 +31,7 @@ const UeberMich = () => {
             </Typography>
           </Grid>
           <Grid item xs={12} md={6} className="sectionContent">
-            <Profilcard />
+            <Profilcard onLebenslaufClick={handleLebenslaufClick} />
           </Grid>
         </Grid>
 
@@ -36,22 +46,11 @@ const UeberMich = () => {
           </Grid>
         </Grid>
 
-        <Grid container className="whiteSection">
+        <Grid container className="whiteSection" ref={lebenslaufRef}>
           <Grid item xs={12} className="sectionContent">
             <Resume />
           </Grid>
         </Grid>
-
-        {/* Kontaktinformationen Sektion
-        <Grid container className="darkSection">
-          <Grid item xs={12} className="sectionContent">
-            <Typography variant="h4">Kontaktinformationen</Typography>
-            <Typography variant="body1">
-              Hier kommen die Kontaktinformationen hin...
-            </Typography>
-          </Grid>
-        </Grid>
-      */}
       </Container>
     </div>
   );

@@ -6,11 +6,7 @@ import Layout from './components/layout/Layout';
 function App() {
   return (
       <div className="App">
-        <Layout>
-          <Typography variant="body1">
-            Hier ist dein Text mit der globalen Schriftart Roboto.
-          </Typography>
-        </Layout>
+        <Layout/>
       </div>
   );
 }

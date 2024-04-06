@@ -38,6 +38,7 @@ img {
     padding: 2rem 0;
     display: flex;
     margin: auto;
+    min-height: 600px;
     max-width: 960px;
 }
 
