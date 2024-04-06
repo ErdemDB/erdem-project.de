@@ -39,7 +39,10 @@ public class WeatherService {
     private WeatherDTO parseResponseToDto(String responseBody) {
         try {
             JsonNode weatherNode = objectMapper.readTree(responseBody);
-            WeatherDescriptionType description = WeatherDescriptionType.fromString(weatherNode.get("weather").get(0).get("main").textValue());
+            WeatherDescriptionType description = WeatherDescriptionType.fromString(weatherNode
+                    .get("weather").get(0)
+                    .get("main")
+                    .textValue());
             String city = weatherNode.get("name").textValue();
             int temperature = (int) (weatherNode.get("main").get("temp").asDouble());
 

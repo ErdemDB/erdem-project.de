@@ -34,6 +34,79 @@
     },
     "contactForm": {
       "formSubmitted": "Ihre Nachricht wurde abgeschickt\nVielen Dank für Ihre Zusendung!"
+    },
+    "resume": {
+      "export": "Export",
+      "berufserfahrung": {
+        "tab": "Berufserfahrung",
+        "content": [
+          {
+            "title": "Backend Entwickler, CGI Deutschland B.V. & Co. KG, Berlin",
+            "subTitle": "April 2022 - heute",
+            "content": [
+              "Backend-Entwickler mit Schwerpunkt Java, Spring Boot, Docker und MySQL",
+              "Erfahrung in der Entwicklung von Microservices",
+              "Unterstützung im Frontend mit React und Typescript",
+              "Verfeinerung der CI/CD-Pipelines mit Jenkins",
+              "Erfahrung in der Entwicklung im Scrum und Präsentation der Sprint-Review-Ergebnisse"
+            ]
+          },
+          {
+            "title": "Werkstudent, Ernst & Young GmbH, Berlin",
+            "subTitle": "April 2021 - April 2022",
+            "content": [
+              "Implementierung eines C# Scrapers mit Selenium",
+              "REST-Webservice für MySQL-Datenbanken aus SAP-Tabellen"
+            ]
+          },
+          {
+            "title": "Praktikant & Werkstudent, Bundesdruckerei GmbH, Berlin",
+            "subTitle": "Juni 2020 - April 2021",
+            "content": [
+              "Entwickler mit Schwerpunkt Java, Spring Boot, Apache Kafka"
+            ]
+          }
+        ]
+      },
+      "studium": {
+        "tab": "Studium & Ausbildung",
+        "content1": {
+          "title": "B.Sc. Wirtschaftsinformatik, HTW Berlin",
+          "subTtitle": "Oktober 2018 - Oktober 2021"
+        },
+        "content2": {
+          "title": "Allgemeine Fachhochschulreife, Elinor-Ostrom-Schule, Berlin",
+          "subTtitle": "August 2017 - Juli 2018"
+        },
+        "content3": {
+          "title": "Kaufmännischer Assistent Ausbildung, Campus Berufsbildung e.V., Berlin",
+          "subTtitle": "Juli 2015 - Juli 2017"
+        }
+      },
+      "faehigkeiten": {
+        "tab": "Fähigkeiten & Zertifikate",
+        "contents": [
+          {
+            "title": "Fähigkeiten",
+            "content": [
+              "Java",
+              "Spring Boot",
+              "Jenkins",
+              "Docker",
+              "Typescript & React",
+              "C#",
+              "Apache Kafka",
+              "SQL"
+            ]
+          },
+          {
+            "title": "Zertifikate",
+            "content": [
+              "Professional Scrum Master™ I ([PSM I](https://www.credly.com/badges/6dbbed11-118d-4726-b0b8-4d8fa677a85f))"
+            ]
+          }
+        ]
+      }
     }
   }
 }

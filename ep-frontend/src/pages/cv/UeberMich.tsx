@@ -1,8 +1,3 @@
-import * as React from 'react';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Container, Typography, Grid } from '@mui/material';
 import Profilcard from './profilecard/Profilecard';
 import ContactForm from './contactform/ContactForm';
@@ -10,9 +5,9 @@ import ContactForm from './contactform/ContactForm';
 import texts from '../../texts.json';
 import Resume from './resume/Resume';
 
-import './Cv.css';
+import './UeberMich.css';
 
-const Cv = () => {
+const UeberMich = () => {
   return (
     <div>
       <Container maxWidth="lg">
@@ -41,7 +36,6 @@ const Cv = () => {
           </Grid>
         </Grid>
 
-        {/* Auszeichnungen & Stipendien Sektion */}
         <Grid container className="whiteSection">
           <Grid item xs={12} className="sectionContent">
             <Resume />
@@ -63,4 +57,4 @@ const Cv = () => {
   );
 }
 
-export default Cv;
+export default UeberMich;
