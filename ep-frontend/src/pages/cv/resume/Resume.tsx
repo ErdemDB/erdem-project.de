@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown'
-import { Box, Tabs, Button, Tab, Typography, Grid, List, ListItem } from '@mui/material';
+import { Box, Tabs, Button, Tab, Typography, Grid, List, ListItem, LinearProgress } from '@mui/material';
 import CareerAccordion from './careeraccordion/CareerAccordion';
 import texts from '../../../texts.json';
 
@@ -132,15 +132,20 @@ export default function Resume() {
               title={<div><Typography variant='h1'>{item.title}</Typography></div>}
               content={
                 <List>
-                  {item.content.map((contentItem, contentIndex) => (
-                    <ListItem key={contentIndex}>
-                      {contentItem.includes('[') ? (
-                        <ReactMarkdown>{contentItem}</ReactMarkdown>
-                      ) : (
-                        contentItem
-                      )}
-                    </ListItem>
-                  ))}
+                  {item.content.map((contentItem, contentIndex) => {
+                    if (typeof contentItem === 'object') {
+                      return (
+                        <Box key={contentIndex} sx={{ display: 'flex', alignItems: 'center' }}>
+                          <Typography variant='body1' sx={{ width: '20%' }}>{contentItem.skill}</Typography>
+                          <LinearProgress variant="determinate" value={contentItem.rating} sx={{ flexGrow: 1 }} />
+                        </Box>
+                      );
+                    } else {
+                      if (contentItem.includes('[') && contentItem.includes('](')) {
+                        return <ReactMarkdown key={contentIndex}>{contentItem}</ReactMarkdown>;
+                      } 
+                    }
+                  })}
                 </List>
               }
               expanded={!!expanded[`panel${(index + 6) + 1}`]}

@@ -34,7 +34,8 @@
       "lebenslauf": "Lebenslauf"
     },
     "contactForm": {
-      "formSubmitted": "Vielen Dank für Ihre Zusendung!"
+      "formSubmitted": "Vielen Dank für Ihre Zusendung!",
+      "alertMessage": "Ihre Nachricht wurde erfolgreich versendet"
     },
     "resume": {
       "export": "Export",
@@ -90,14 +91,14 @@
           {
             "title": "Fähigkeiten",
             "content": [
-              "Java",
-              "Spring Boot",
-              "Jenkins",
-              "Docker",
-              "Typescript & React",
-              "C#",
-              "Apache Kafka",
-              "SQL"
+              {"skill": "Java", "rating": 90},
+              {"skill": "Spring Boot", "rating": 85},
+              {"skill": "Jenkins", "rating": 75},
+              {"skill": "Docker", "rating": 80},
+              {"skill": "Typescript & React", "rating": 70},
+              {"skill": "C#", "rating": 65},
+              {"skill": "Apache Kafka", "rating": 60},
+              {"skill": "SQL", "rating": 85}
             ]
           },
           {

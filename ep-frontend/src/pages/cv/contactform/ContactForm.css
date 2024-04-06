@@ -43,3 +43,7 @@
     font-size: 13px !important;
     color: #f5f4f0 !important;
 }
+
+.alertMessage{
+    border: 1px solid #1ba122 !important;
+}
