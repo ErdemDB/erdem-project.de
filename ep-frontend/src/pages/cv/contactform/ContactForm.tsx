@@ -37,6 +37,8 @@ const ContactForm: React.FC = () => {
 
   const { sendMail } = useMailSender();
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
+  const [showAlert, setShowAlert] = useState<boolean>(false);
+
 
   const validateEmail = (email: string): boolean => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -75,95 +77,94 @@ const ContactForm: React.FC = () => {
     if (validate()) {
       sendMail(mailDTO);
       setFormSubmitted(true);
+      setShowAlert(true);
     }
   };
 
   useEffect(() => {
     if (formSubmitted) {
       const timeout = setTimeout(() => {
-        setFormSubmitted(false);
+        setShowAlert(false);
       }, 5000);
 
       return () => clearTimeout(timeout);
     }
-  }, [formSubmitted]);
+  }, [showAlert]);
 
   return (
-    <Paper className="ContactFormContainer" variant="outlined">
-      <Grid container justifyContent="flex-end" alignItems="flex-end">
-        <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
-          <Box sx={{ position: 'fixed', right: 20, bottom: 20 }}>
-            {formSubmitted && (
-              <Alert severity="success">
-                Ihre Nachricht wurde erfolgreich versendet
-              </Alert>
-            )}
-          </Box>
-        </Grid>
-      </Grid>
-      {!formSubmitted ? (
-        <Grid container direction="column" alignItems="left" justifyContent="left" spacing={2}>
-          <Grid item xs={12}>
-            <TextField
-              className={`outlined-basic ${errors.email ? 'error-field' : ''}`}
-              label="E-Mail"
-              variant="outlined"
-              size="small"
-              value={mailDTO.from}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('from')(e)}
-              error={Boolean(errors.email)}
-              helperText={touched.email ? errors.email : ''}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              className={`outlined-basic ${errors.name ? 'error-field' : ''}`}
-              label="Name"
-              variant="outlined"
-              size="small"
-              value={mailDTO.name}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('name')(e)}
-              error={Boolean(errors.name)}
-              helperText={touched.name ? errors.name : ''}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              className={`outlined-basic ${errors.subject ? 'error-field' : ''}`}
-              label="Betreff"
-              variant="outlined"
-              size="small"
-              value={mailDTO.subject}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('subject')(e)}
-              error={Boolean(errors.subject)}
-              helperText={touched.subject ? errors.subject : ''}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              className={`outlined-basic ${errors.message ? 'error-field' : ''}`}
-              label="Nachricht"
-              variant="outlined"
-              size="small"
-              multiline
-              rows={4}
-              fullWidth
-              value={mailDTO.text}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('text')(e)}
-              error={Boolean(errors.message)}
-              helperText={touched.message ? errors.message : ''}
-            />
-          </Grid>
-          <Grid item xs={12} sx={{ mt: "30px" }}>
-            <Button variant="contained" onClick={handleSubmit}>Senden</Button>
-          </Grid>
-        </Grid>
-      ) : (
-        <Typography variant="h4">
-          {texts.cv.contactForm.formSubmitted}
-        </Typography>
+    <>
+      {showAlert && (
+        <Box sx={{ position: 'fixed', right: 20, bottom: 20, zIndex: 1500 }}>
+          <Alert className='alertMessage' severity="success">
+            {texts.cv.contactForm.alertMessage}
+          </Alert>
+        </Box>
       )}
-    </Paper>
+      <Paper className="ContactFormContainer" variant="outlined">
+        {!formSubmitted ? (
+          <Grid container direction="column" alignItems="left" justifyContent="left" spacing={2}>
+            <Grid item xs={12}>
+              <TextField
+                className={`outlined-basic ${errors.email ? 'error-field' : ''}`}
+                label="E-Mail"
+                variant="outlined"
+                size="small"
+                value={mailDTO.from}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('from')(e)}
+                error={Boolean(errors.email)}
+                helperText={touched.email ? errors.email : ''}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                className={`outlined-basic ${errors.name ? 'error-field' : ''}`}
+                label="Name"
+                variant="outlined"
+                size="small"
+                value={mailDTO.name}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('name')(e)}
+                error={Boolean(errors.name)}
+                helperText={touched.name ? errors.name : ''}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                className={`outlined-basic ${errors.subject ? 'error-field' : ''}`}
+                label="Betreff"
+                variant="outlined"
+                size="small"
+                value={mailDTO.subject}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('subject')(e)}
+                error={Boolean(errors.subject)}
+                helperText={touched.subject ? errors.subject : ''}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                className={`outlined-basic ${errors.message ? 'error-field' : ''}`}
+                label="Nachricht"
+                variant="outlined"
+                size="small"
+                multiline
+                rows={4}
+                fullWidth
+                value={mailDTO.text}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('text')(e)}
+                error={Boolean(errors.message)}
+                helperText={touched.message ? errors.message : ''}
+              />
+            </Grid>
+            <Grid item xs={12} sx={{ mt: "30px" }}>
+              <Button variant="contained" onClick={handleSubmit}>Senden</Button>
+            </Grid>
+          </Grid>
+        ) : (
+          <Typography variant="h4">
+            {texts.cv.contactForm.formSubmitted}
+          </Typography>
+        )}
+      </Paper>
+    </>
   );
 };
 
