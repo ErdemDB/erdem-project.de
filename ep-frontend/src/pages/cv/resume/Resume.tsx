@@ -1,12 +1,10 @@
-import React from 'react';
-import Box from '@mui/material/Box';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown'
+import { Box, Tabs, Button, Tab, Typography, Grid, List, ListItem } from '@mui/material';
+import CareerAccordion from './careeraccordion/CareerAccordion';
+import texts from '../../../texts.json';
+
+import './Resume.css';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -27,7 +25,7 @@ function TabPanel(props: TabPanelProps) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          <Typography component="div">{children}</Typography>
         </Box>
       )}
     </div>
@@ -35,34 +33,112 @@ function TabPanel(props: TabPanelProps) {
 }
 
 export default function Resume() {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
+  const [expanded, setExpanded] = useState<{ [key: string]: boolean }>({});
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
+  const handleAccordionChange = (panel: string) => {
+    setExpanded(prevExpanded => ({
+      ...prevExpanded,
+      [panel]: !prevExpanded[panel],
+    }));
+  };
+
   return (
     <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Interior Design" />
-          <Tab label="Exterior Design" />
-          <Tab label="Implementation" />
-          <Tab label="Space Arrangement" />
-        </Tabs>
-      </Box>
+      <Grid container alignItems="flex-end" justifyContent="space-between">
+        <Grid item>
+          <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+            <Tab label={texts.cv.resume.berufserfahrung.tab} />
+            <Tab label={texts.cv.resume.studium.tab} />
+            <Tab label={texts.cv.resume.faehigkeiten.tab} />
+          </Tabs>
+        </Grid>
+        <Grid item>
+          <Button variant="outlined" sx={{ mt: -3, display: { xs: 'none', sm: 'inline-flex' } }}>
+            {texts.cv.resume.export}
+          </Button>
+        </Grid>
+      </Grid>
+      <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 1 }} />
       <TabPanel value={value} index={0}>
-        {/* Content for Interior Design */}
+        {texts.cv.resume.berufserfahrung.content.map((item, index) => (
+          <CareerAccordion
+            key={index}
+            title={<div><Typography variant='h1'>{item.title}</Typography><Typography variant='subtitle1'>{item.subTitle}</Typography></div>}
+            content={
+              <List>
+                {item.content.map((contentItem, contentIndex) => (
+                  <ListItem key={contentIndex}>
+                    {(contentItem)}
+                  </ListItem>
+                ))}
+              </List>
+            }
+            expanded={!!expanded[`panel${index + 1}`]}
+            onChange={() => handleAccordionChange(`panel${index + 1}`)}
+            panel={`panel${index + 1}`}
+          />
+        ))}
       </TabPanel>
       <TabPanel value={value} index={1}>
-        {/* Content for Exterior Design */}
+        <CareerAccordion
+          title={<div><Typography variant='h1'>{texts.cv.resume.studium.content1.title}</Typography>
+            <Typography variant='subtitle1'>{texts.cv.resume.studium.content1.subTtitle}</Typography></div>}
+          content={<div></div>}
+          expanded={!!expanded['panel4']}
+          onChange={() => handleAccordionChange('panel4')}
+          panel="panel4"
+          isExpandable={false}
+        />
+        <CareerAccordion
+          title={<div><Typography variant='h1'>{texts.cv.resume.studium.content2.title}</Typography>
+            <Typography variant='subtitle1'>{texts.cv.resume.studium.content2.subTtitle}</Typography></div>}
+          content={<div></div>}
+          expanded={!!expanded['panel5']}
+          onChange={() => handleAccordionChange('panel5')}
+          panel="panel5"
+          isExpandable={false}
+        />
+        <CareerAccordion
+          title={<div><Typography variant='h1'>{texts.cv.resume.studium.content3.title}</Typography>
+            <Typography variant='subtitle1'>{texts.cv.resume.studium.content3.subTtitle}</Typography></div>}
+          content={<div></div>}
+          expanded={!!expanded['panel6']}
+          onChange={() => handleAccordionChange('panel6')}
+          panel="panel6"
+          isExpandable={false}
+        />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        {/* Content for Implementation */}
+        {texts.cv.resume.faehigkeiten.contents.map((item, index) => (
+          <Box key={index} sx={{ mb: 2 }}>
+            <CareerAccordion
+              title={<div><Typography variant='h1'>{item.title}</Typography></div>}
+              content={
+                <List>
+                  {item.content.map((contentItem, contentIndex) => (
+                    <ListItem key={contentIndex}>
+                      {contentItem.includes('[') ? (
+                        <ReactMarkdown>{contentItem}</ReactMarkdown>
+                      ) : (
+                        contentItem
+                      )}
+                    </ListItem>
+                  ))}
+                </List>
+              }
+              expanded={!!expanded[`panel${(index + 6) + 1}`]}
+              onChange={() => handleAccordionChange(`panel${(index + 6) + 1}`)}
+              panel={`panel${(index + 6) + 1}`}
+            />
+          </Box>
+        ))}
       </TabPanel>
-      <TabPanel value={value} index={3}>
-        {/* Content for Space Arrangement */}
-      </TabPanel>
+
     </Box>
   );
 }

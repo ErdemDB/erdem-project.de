@@ -32,6 +32,8 @@ export interface SendMailRequest {
 export class MailControllerApi extends runtime.BaseAPI {
 
     /**
+     * Endpoint to send an email through a contact form.
+     * Send Email via Contact Form
      */
     async sendMailRaw(requestParameters: SendMailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['mailDTO'] == null) {
@@ -59,6 +61,8 @@ export class MailControllerApi extends runtime.BaseAPI {
     }
 
     /**
+     * Endpoint to send an email through a contact form.
+     * Send Email via Contact Form
      */
     async sendMail(requestParameters: SendMailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.sendMailRaw(requestParameters, initOverrides);

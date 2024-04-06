@@ -1,0 +1,19 @@
+.MuiTab-root.Mui-selected{
+    color: #000 !important;
+}
+
+.MuiTabs-indicator{
+    background-color: #000 !important;
+}
+
+.MuiAccordionSummary-content .MuiTypography-h1  {
+    color: #1d1914 !important;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.MuiAccordionSummary-content .MuiTypography-subtitle1  {
+    color: #9c9c9c !important;
+    font-size: 16px;
+    font-weight: 400;
+}

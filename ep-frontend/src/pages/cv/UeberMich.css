@@ -10,6 +10,7 @@ img {
 .darkSection {
     background-color: #2b2a29;
     color: white;
+    min-height: 470px !important;
 }
 
 .darkSectionContainer {
