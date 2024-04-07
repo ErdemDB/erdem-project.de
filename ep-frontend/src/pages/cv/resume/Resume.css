@@ -12,7 +12,7 @@
     font-weight: 400;
 }
 
-.MuiBox-root {
+.MuiList-root .MuiBox-root {
     margin-bottom: 1% !important;
 } 
 
