@@ -1,12 +1,16 @@
+import React, { useState } from 'react';
 import { AppBar, Toolbar, Typography, Box, Button, IconButton, Collapse } from '@mui/material';
 import texts from '../../../texts.json';
 import MenuIcon from '@mui/icons-material/Menu';
 import Weather from './weather/Weather';
-import React, { useState } from 'react';
+import { Link, useLocation  } from 'react-router-dom';
 
 import './Topbar.css';
 
-const pages = ['ÜBER MICH', 'COMING SOON...'];
+const pages = [
+  { name: 'ÜBER MICH', route: '/' },
+  { name: 'COMING SOON...', route: '/coming-soon' }
+];
 
 const Topbar = () => {
   const [openWeather, setOpenWeather] = useState(false);
@@ -14,6 +18,8 @@ const Topbar = () => {
   const handleWeatherToggle = () => {
     setOpenWeather(!openWeather);
   };
+
+  const location = useLocation();
 
   return (
     <>
@@ -30,11 +36,14 @@ const Topbar = () => {
           <Box sx={{ display: { xs: 'flex', md: 'flex' }, alignItems: 'center' }}>
             {pages.map((page) => (
               <Button
-                key={page}
+                key={page.name}
                 className='topbarMenu'
-                sx={{ my: 2, color: 'white' }}>
+                sx={{ my: 2, borderBottom: location.pathname === page.route ? '1px solid #f5f4f0' : 'none'
+              }}
+                component={Link} to={page.route}
+              >
                 <Typography variant="body2" component="div">
-                  {page}
+                  {page.name}
                 </Typography>
               </Button>
             ))}

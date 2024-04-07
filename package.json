@@ -4,6 +4,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.14",
     "@mui/material": "^5.15.14",
-    "@types/googlemaps": "^3.43.3"
+    "@types/googlemaps": "^3.43.3",
+    "react-router-dom": "^6.22.3"
   }
 }

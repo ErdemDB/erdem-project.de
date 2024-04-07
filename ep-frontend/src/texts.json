@@ -46,26 +46,26 @@
             "title": "Backend Entwickler, CGI Deutschland B.V. & Co. KG, Berlin",
             "subTitle": "April 2022 - heute",
             "content": [
-              "Backend-Entwickler mit Schwerpunkt Java, Spring Boot, Docker und MySQL",
-              "Erfahrung in der Entwicklung von Microservices",
-              "Unterstützung im Frontend mit React und Typescript",
-              "Verfeinerung der CI/CD-Pipelines mit Jenkins",
-              "Erfahrung in der Entwicklung im Scrum und Präsentation der Sprint-Review-Ergebnisse"
+              "RESTful API Design & Entwicklung",
+              "Datenbankdesign und -optimierung (SQL & NoSQL)",
+              "Sicherheitsbest Practices (OAuth, JWT)",
+              "Container-Orchestrierung (Kubernetes)",
+              "Microservices-Monitoring und -Logging"
             ]
           },
           {
             "title": "Werkstudent, Ernst & Young GmbH, Berlin",
             "subTitle": "April 2021 - April 2022",
             "content": [
-              "Implementierung eines C# Scrapers mit Selenium",
-              "REST-Webservice für MySQL-Datenbanken aus SAP-Tabellen"
+              "Web-Scraper-Entwicklung mit Selenium",
+              "REST-Webservice zur Datenmigration von SAP nach MySQL"
             ]
           },
           {
             "title": "Praktikant & Werkstudent, Bundesdruckerei GmbH, Berlin",
             "subTitle": "Juni 2020 - April 2021",
             "content": [
-              "Entwickler mit Schwerpunkt Java, Spring Boot, Apache Kafka"
+              "Entwickler mit Schwerpunkt Java, Spring Boot und Apache Kafka"
             ]
           }
         ]

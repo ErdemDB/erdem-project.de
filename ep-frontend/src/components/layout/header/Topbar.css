@@ -22,11 +22,12 @@
 }
 
 .MuiToolbar-root .MuiIconButton-root:hover {
-    color: #f5f4f0 ! ;
+    color: #f5f4f0;
 }
 
 .MuiToolbar-root .MuiIconButton-root:active {
     color: #f5f4f0 !important;
+    border-bottom: solid 1px #f5f4f0 !important;
 }
 
 .Toolbar-Collapse {
