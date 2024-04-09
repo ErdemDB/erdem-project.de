@@ -7,6 +7,8 @@ networks:
 services:
   backend:
     image: drogbach/ep-backend:latest
+    build:
+      context: ./ep-backend
     ports:
       - "8080:8080"
     environment:
@@ -20,11 +22,10 @@ services:
 
   frontend:
     image: drogbach/ep-frontend:latest
+    build:
+      context: ./ep-frontend
     ports:
-      - "443:443"
-    volumes:
-      - ./ep-frontend/build:/usr/share/nginx/html
-      - /etc/letsencrypt:/etc/letsencrypt
+      - "3000:3000"
     depends_on:
       - openapi-generator
     networks:
