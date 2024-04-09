@@ -13,7 +13,7 @@
  */
 
 
-export const BASE_PATH = "http://host.docker.internal:8080/erdem-project".replace(/\/+$/, "");
+export const BASE_PATH = "http://164.90.188.72:8080/erdem-project".replace(/\/+$/, "");
 
 export interface ConfigurationParameters {
     basePath?: string; // override base path

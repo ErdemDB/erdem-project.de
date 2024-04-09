@@ -15,7 +15,14 @@ public class WebConfig {
             @Override
             public void addCorsMappings(@NonNull CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:3000")
+                        .allowedOrigins(
+                                "http://localhost:3000",
+                                "https://localhost:3000",
+                                "http://erdem-project.de",
+                                "https://erdem-project.de",
+                                "http://www.erdem-project.de",
+                                "https://www.erdem-project.de"
+                        )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true)
