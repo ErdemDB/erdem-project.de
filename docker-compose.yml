@@ -6,6 +6,7 @@ networks:
 
 services:
   backend:
+    image: drogbach/ep-backend:latest
     build:
       context: ./ep-backend
     ports:
@@ -20,6 +21,7 @@ services:
       - erdemio-network
 
   frontend:
+    image: drogbach/ep-frontend:latest
     build:
       context: ./ep-frontend
     ports:
@@ -34,7 +36,7 @@ services:
     volumes:
       - ./ep-frontend:/local
     command: >
-      /bin/sh -c "wget -qO- http://host.docker.internal:8080/erdem-project/v3/api-docs
+      /bin/sh -c "wget -qO- http://164.90.188.72:8080/erdem-project:8080/erdem-project/v3/api-docs
       | java -jar /opt/openapi-generator/modules/openapi-generator-cli/target/openapi-generator-cli.jar generate
       -i /dev/stdin
       -g typescript-fetch

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { AppBar, Toolbar, Typography, Box, Button, IconButton, Collapse } from '@mui/material';
 import texts from '../../../texts.json';
 import MenuIcon from '@mui/icons-material/Menu';

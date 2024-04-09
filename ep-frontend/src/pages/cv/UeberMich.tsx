@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { Container, Typography, Grid } from '@mui/material';
 import Profilcard from './profilecard/Profilecard';
 import ContactForm from './contactform/ContactForm';
