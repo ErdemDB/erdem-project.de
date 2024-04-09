@@ -21,9 +21,10 @@ services:
   frontend:
     image: drogbach/ep-frontend:latest
     ports:
-      - "3000:3000"
+      - "443:443"
     volumes:
       - ./ep-frontend/build:/usr/share/nginx/html
+      - /etc/letsencrypt:/etc/letsencrypt
     depends_on:
       - openapi-generator
     networks:
