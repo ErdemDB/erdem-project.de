@@ -8,14 +8,11 @@ import Resume from './resume/Resume';
 
 import './UeberMich.css';
 
-const UeberMich = () => {
-
-  const lebenslaufRef = useRef<HTMLInputElement>(null);
+const UeberMich: React.FC = () => {
+  const lebenslaufRef = useRef<HTMLDivElement>(null);
 
   const handleLebenslaufClick = () => {
-    if (lebenslaufRef.current) {
-      lebenslaufRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    lebenslaufRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (

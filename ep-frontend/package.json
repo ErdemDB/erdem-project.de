@@ -29,7 +29,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "generate-api-client": "openapi-generator-cli generate -i http://erdem-project.de:8080/erdem-project/v3/api-docs -g typescript-fetch -o ./src/api-client"
+    "generate-api-client": "openapi-generator-cli generate -i http://erdem-project.de/erdem-project/v3/api-docs -g typescript-fetch -o ./src/api-client"
   },
   "eslintConfig": {
     "extends": [

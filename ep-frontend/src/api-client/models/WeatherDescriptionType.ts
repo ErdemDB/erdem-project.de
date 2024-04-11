@@ -28,10 +28,6 @@ export const WeatherDescriptionType = {
 export type WeatherDescriptionType = typeof WeatherDescriptionType[keyof typeof WeatherDescriptionType];
 
 
-export function instanceOfWeatherDescriptionType(value: any): boolean {
-    return Object.values(WeatherDescriptionType).includes(value);
-}
-
 export function WeatherDescriptionTypeFromJSON(json: any): WeatherDescriptionType {
     return WeatherDescriptionTypeFromJSONTyped(json, false);
 }
