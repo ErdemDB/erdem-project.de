@@ -5,7 +5,8 @@ RUN npm install
 COPY . ./
 RUN npm run build
 
-FROM node:21.7.1-slim
-WORKDIR /app
-COPY --from=build /app/build /app
-CMD ["npm", "start"]
+FROM nginx:stable-alpine
+COPY ./config/nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 3000
+CMD ["nginx", "-g", "daemon off;"]

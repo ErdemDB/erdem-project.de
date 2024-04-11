@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import ReactMarkdown from 'react-markdown'
 import { Box, Tabs, Button, Tab, Typography, Grid, List, ListItem, LinearProgress } from '@mui/material';
 import CareerAccordion from './careeraccordion/CareerAccordion';
@@ -32,9 +32,10 @@ function TabPanel(props: TabPanelProps) {
   );
 }
 
-export default function Resume() {
+const Resume: React.FC = () => {
   const [value, setValue] = useState(0);
   const [expanded, setExpanded] = useState<{ [key: string]: boolean }>({});
+  const lebenslaufRef = useRef<HTMLDivElement>(null);
 
   const setDefaultExpanded = (content: any[]) => {
     let defaultExpanded: { [key: string]: boolean } = {};
@@ -48,8 +49,13 @@ export default function Resume() {
     setExpanded(setDefaultExpanded(texts.cv.resume.berufserfahrung.content));
   }, []);
 
+  const handleTabChange = (tabIndex: number): void => {
+    lebenslaufRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
+    handleTabChange(newValue);
   };
 
   const handleAccordionChange = (panel: string) => {
@@ -60,7 +66,7 @@ export default function Resume() {
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx={{ width: '100%' }} ref={lebenslaufRef}>
       <Grid container alignItems="flex-end" justifyContent="space-between">
         <Grid item>
           <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
@@ -159,3 +165,4 @@ export default function Resume() {
     </Box>
   );
 }
+export default Resume;

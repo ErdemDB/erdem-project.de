@@ -27,7 +27,7 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - backend
+      - openapi-generator
     networks:
       - erdemio-network
 
@@ -36,7 +36,7 @@ services:
     volumes:
       - ./ep-frontend:/local
     command: >
-      /bin/sh -c "wget -qO- http://backend:8080/erdem-project/v3/api-docs
+      /bin/sh -c "wget -qO- http://164.90.188.72:8080/erdem-project:8080/erdem-project/v3/api-docs
       | java -jar /opt/openapi-generator/modules/openapi-generator-cli/target/openapi-generator-cli.jar generate
       -i /dev/stdin
       -g typescript-fetch
