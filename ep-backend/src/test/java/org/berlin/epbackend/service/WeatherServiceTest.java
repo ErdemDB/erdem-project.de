@@ -1,9 +1,11 @@
 package org.berlin.epbackend.service;
 
+import org.berlin.epbackend.controller.FileController;
 import org.berlin.epbackend.dto.WeatherDTO;
 import org.berlin.epbackend.enums.WeatherDescriptionType;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -13,6 +15,12 @@ class WeatherServiceTest {
 
     @SpyBean
     private WeatherService weatherService;
+
+    @MockBean
+    private FileController fileController;
+
+    @MockBean
+    private FileService fileService;
 
     @Test
     void testGetWeather() {
