@@ -5,6 +5,8 @@ COPY src ./src
 RUN mvn clean package
 RUN mvn test || exit 1
 
+RUN mkdir -p /var/pdf
+
 FROM openjdk:17
 WORKDIR /app
 COPY --from=build /app/target/*.jar /app/app.jar

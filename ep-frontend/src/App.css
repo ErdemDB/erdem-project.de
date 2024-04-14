@@ -1,3 +1,18 @@
 .App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   text-align: center;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Damit sie die volle Höhe einnehmen */
+}
+
+.Layout {
+  flex: 1; /* Dehnt sich aus, um verfügbaren Raum zu füllen */
+  display: flex;
+  flex-direction: column;
 }

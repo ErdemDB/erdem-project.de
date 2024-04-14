@@ -22,3 +22,17 @@
         align-items: flex-start;
     }
 }
+
+footer a {
+    border-radius: 0% !important;
+    color: #9e9d9d !important;
+    margin-left: -7px !important;
+}
+
+footer a:hover {
+    color: #f5f4f0 !important;
+}
+
+footer a:active {
+    color: #f5f4f0 !important;
+}
