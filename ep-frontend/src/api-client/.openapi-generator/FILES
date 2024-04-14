@@ -1,3 +1,4 @@
+apis/FileControllerApi.ts
 apis/MailControllerApi.ts
 apis/TaskControllerApi.ts
 apis/WeatherControllerApi.ts

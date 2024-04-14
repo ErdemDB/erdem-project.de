@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import { Box, Tabs, Button, Tab, Typography, Grid, List, ListItem, LinearProgress } from '@mui/material';
 import CareerAccordion from './careeraccordion/CareerAccordion';
 import texts from '../../../texts.json';
+import useFileController from './Controller';
 
 import './Resume.css';
 
@@ -12,7 +13,7 @@ interface TabPanelProps {
   value: any;
 }
 
-function TabPanel(props: TabPanelProps) {
+function TabPanel(props: Readonly<TabPanelProps>) {
   const { children, value, index, ...other } = props;
 
   return (
@@ -65,6 +66,8 @@ const Resume: React.FC = () => {
     }));
   };
 
+  const {downloadPdf} = useFileController();
+
   return (
     <Box sx={{ width: '100%' }} ref={lebenslaufRef}>
       <Grid container alignItems="flex-end" justifyContent="space-between">
@@ -76,7 +79,7 @@ const Resume: React.FC = () => {
           </Tabs>
         </Grid>
         <Grid item>
-          <Button variant="outlined" sx={{ mt: -3, display: { xs: 'none', sm: 'inline-flex' } }}>
+          <Button onClick={downloadPdf} variant="outlined" sx={{ mt: -3, display: { xs: 'none', sm: 'inline-flex' } }}>
             {texts.cv.resume.export}
           </Button>
         </Grid>
@@ -96,7 +99,7 @@ const Resume: React.FC = () => {
                 ))}
               </List>
             }
-            expanded={!!expanded[`panel${index + 1}`]}
+            expanded={expanded[`panel${index + 1}`]}
             onChange={() => handleAccordionChange(`panel${index + 1}`)}
             panel={`panel${index + 1}`}
           />
@@ -107,7 +110,7 @@ const Resume: React.FC = () => {
           title={<div><Typography variant='h1'>{texts.cv.resume.studium.content1.title}</Typography>
             <Typography variant='subtitle1'>{texts.cv.resume.studium.content1.subTtitle}</Typography></div>}
           content={<div></div>}
-          expanded={!!expanded['panel4']}
+          expanded={expanded['panel4']}
           onChange={() => handleAccordionChange('panel4')}
           panel="panel4"
           isExpandable={false}
@@ -116,7 +119,7 @@ const Resume: React.FC = () => {
           title={<div><Typography variant='h1'>{texts.cv.resume.studium.content2.title}</Typography>
             <Typography variant='subtitle1'>{texts.cv.resume.studium.content2.subTtitle}</Typography></div>}
           content={<div></div>}
-          expanded={!!expanded['panel5']}
+          expanded={expanded['panel5']}
           onChange={() => handleAccordionChange('panel5')}
           panel="panel5"
           isExpandable={false}
@@ -125,7 +128,7 @@ const Resume: React.FC = () => {
           title={<div><Typography variant='h1'>{texts.cv.resume.studium.content3.title}</Typography>
             <Typography variant='subtitle1'>{texts.cv.resume.studium.content3.subTtitle}</Typography></div>}
           content={<div></div>}
-          expanded={!!expanded['panel6']}
+          expanded={expanded['panel6']}
           onChange={() => handleAccordionChange('panel6')}
           panel="panel6"
           isExpandable={false}
@@ -146,15 +149,13 @@ const Resume: React.FC = () => {
                           <LinearProgress variant="determinate" value={contentItem.rating} sx={{ flexGrow: 1 }} />
                         </Box>
                       );
-                    } else {
-                      if (contentItem.includes('[') && contentItem.includes('](')) {
-                        return <ReactMarkdown key={contentIndex}>{contentItem}</ReactMarkdown>;
-                      } 
+                    } else if (contentItem.includes('[') && contentItem.includes('](')) {
+                      return <ReactMarkdown key={contentIndex}>{contentItem}</ReactMarkdown>;
                     }
                   })}
                 </List>
               }
-              expanded={!!expanded[`panel${(index + 6) + 1}`]}
+              expanded={expanded[`panel${(index + 6) + 1}`]}
               onChange={() => handleAccordionChange(`panel${(index + 6) + 1}`)}
               panel={`panel${(index + 6) + 1}`}
             />

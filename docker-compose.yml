@@ -15,6 +15,8 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/ep_database
       - SPRING_DATASOURCE_USERNAME=admin
       - SPRING_DATASOURCE_PASSWORD=7hkyN11iMVJM0lZy0ZuE
+    volumes:
+      - /var/erdem-project/pdf_storage:/var/pdf
     depends_on:
       - db
     networks:
