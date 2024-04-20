@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AppBar, Toolbar, Typography, Box, Button, IconButton, Collapse } from '@mui/material';
 import texts from '../../../texts.json';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -20,6 +20,19 @@ const Topbar = () => {
   const handleWeatherToggle = () => {
     setOpenWeather(!openWeather);
   };
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (openWeather) {
+        const menuButton = document.getElementById('menuButton');
+        if (menuButton && !menuButton.contains(event.target as Node)) {
+          setOpenWeather(false);
+        }
+      }
+    };
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => document.removeEventListener('mousedown', handleOutsideClick);
+  }, [openWeather]);
 
   const redirectToHome = () => {
     navigate('/');
@@ -58,6 +71,7 @@ const Topbar = () => {
               aria-label="menu"
               onClick={handleWeatherToggle}
               color="inherit"
+              id="menuButton"
             >
               <MenuIcon />
             </IconButton>
