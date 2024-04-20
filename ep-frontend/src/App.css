@@ -5,14 +5,27 @@
   text-align: center;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   margin: 0;
   padding: 0;
-  height: 100%; /* Damit sie die volle Höhe einnehmen */
+  height: 100%;
 }
 
 .Layout {
-  flex: 1; /* Dehnt sich aus, um verfügbaren Raum zu füllen */
+  flex: 1;
   display: flex;
   flex-direction: column;
+}
+
+.MuiButton-contained {
+  font-weight: 400 !important;
+  color: #c0c0c0 !important;
+  border-color: #2b2a29 !important;
+  background-color: #2b2a29 !important;
+}
+
+.MuiButton-contained:hover {
+  color: #e6e6e6 !important;
 }

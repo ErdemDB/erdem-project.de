@@ -5,6 +5,7 @@ img {
 .MuiContainer-root {
     padding: 0px 0px 0px 0px !important;
     max-width: none !important;
+    overflow-x: hidden !important;
 }
 
 .darkSection {
