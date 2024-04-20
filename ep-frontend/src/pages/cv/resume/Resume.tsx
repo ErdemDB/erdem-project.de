@@ -71,8 +71,13 @@ const Resume: React.FC = () => {
   return (
     <Box sx={{ width: '100%' }} ref={lebenslaufRef}>
       <Grid container alignItems="flex-end" justifyContent="space-between">
-        <Grid item>
-          <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+        <Grid item xs md>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            variant="scrollable"
+            allowScrollButtonsMobile
+          >
             <Tab label={texts.cv.resume.berufserfahrung.tab} />
             <Tab label={texts.cv.resume.studium.tab} />
             <Tab label={texts.cv.resume.faehigkeiten.tab} />

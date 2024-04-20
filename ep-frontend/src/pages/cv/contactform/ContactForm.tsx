@@ -155,7 +155,7 @@ const ContactForm: React.FC = () => {
               />
             </Grid>
             <Grid item xs={12} sx={{ mt: "30px" }}>
-              <Button variant="contained" onClick={handleSubmit}>Senden</Button>
+              <Button className='button-dark-section' variant="contained" onClick={handleSubmit}>Senden</Button>
             </Grid>
           </Grid>
         ) : (

@@ -26,7 +26,7 @@ const CareerAccordion = ({
         aria-controls={`${panel}bh-content`}
         id={`${panel}bh-header`}
       >
-        <Typography sx={{ flexShrink: 0 }}>
+        <Typography >
           {title}
         </Typography>
       </AccordionSummary>

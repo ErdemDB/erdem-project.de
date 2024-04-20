@@ -5,6 +5,7 @@ import ConstructionIcon from '@mui/icons-material/Construction';
 
 import UeberMich from '../../pages/cv/UeberMich';
 import PrivacyPolicy from '../../pages/privacyPolicy/PrivacyPolicy';
+import ToDo from '../../pages/toDo/ToDo';
 
 
 import './Layout.css';
@@ -40,6 +41,7 @@ const Layout: React.FC<LayoutProps> = () => {
             <Route path="/" element={<UeberMich />} />
             <Route path="/coming-soon" element={<ComingSoon/>} />
             <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
+            <Route path="/to-do" element={<ToDo/>} />
           </Routes>
         </main>
       </div>
