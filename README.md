@@ -19,6 +19,7 @@ Ich habe praktische Erfahrung in Java und Spring Boot, sowie in der Frontend-Ent
 - Spring Boot
 - TypeScript
 - React
+- Material UI
 - Docker
 - DigitalOcean
 
